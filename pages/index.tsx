@@ -1,11 +1,12 @@
-import { GlobalStyle } from "../styles/globals";
+import { Container } from "../styles/pages";
 
 export default function Home() {
   return (
     <>
-      <h1>Hello world</h1>
-
-      <GlobalStyle />
+      <Container>
+          <img src="/assets/discord-logo.svg" alt="Discord" />
+          <button>ENTRAR</button>
+      </Container>
     </>
   );
 }
