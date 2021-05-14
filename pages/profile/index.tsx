@@ -25,16 +25,16 @@ export default function Profile() {
         <ul className="friends">
           <h4>Meus amigos</h4>
           <li>
-            <img src={session.user.image} alt={session.user.name} />
+            <img src={session?.user.image || "#"} alt={session.user.name || "NatanT"} />
             <div>
-              <strong>{session.user.name}</strong>
+              <strong>{session?.user.name || "NatanT"}</strong>
               <span>
                 Jogando Visual Studio Code Jogando Visual Jogando Visual
               </span>
             </div>
           </li>
           <li>
-            <img src={session.user.image} alt="Gitano" />
+            <img src={session?.user.image || "#"} alt="Gitano" />
             <div>
               <strong>Gitano</strong>
             </div>
@@ -52,10 +52,10 @@ export default function Profile() {
           <div className="header">
             <div>
               <img
-                src={session.user.image || "#"}
-                alt={session.user.name || "#"}
+                src={session?.user.image || "#"}
+                alt={session?.user.name || "#"}
               />
-              <h2>{session.user.name || "NatanT"}</h2>
+              <h2>{session?.user.name || "NatanT"}</h2>
               <span>#2651</span>
             </div>
             <ButtonProfile>Enviar avatar</ButtonProfile>
@@ -65,7 +65,7 @@ export default function Profile() {
             <FieldContainer>
               <label htmlFor="username">
                 <span>NOME DE USUÁRIO</span>
-                <p>{session.user.name || "NatanT"}#2651</p>
+                <p>{session?.user.name || "NatanT"}#2651</p>
               </label>
 
               <ButtonProfile id="username">Editar</ButtonProfile>
