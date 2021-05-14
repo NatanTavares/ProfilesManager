@@ -1,10 +1,15 @@
+import { Provider } from "next-auth/client";
+
 import { GlobalStyle } from "../styles/globals";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
+
+      <Provider session={pageProps.session}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

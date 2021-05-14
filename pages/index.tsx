@@ -1,12 +1,12 @@
+import { useSession } from "next-auth/client";
+import SignIn from "./auth/sign-in";
+
+import Profile from "./profile/profile";
+
 import { Container } from "../styles/pages";
 
 export default function Home() {
-  return (
-    <>
-      <Container>
-          <img src="/assets/discord-logo.svg" alt="Discord" />
-          <button>ENTRAR</button>
-      </Container>
-    </>
-  );
+  const [session, loading] = useSession();
+
+  return <Container>{!session ? <SignIn /> : <Profile />}</Container>;
 }
