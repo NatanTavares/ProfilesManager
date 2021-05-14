@@ -1,5 +1,11 @@
 import { signOut, useSession } from "next-auth/client";
-import { ButtonProfile, Container, FieldContainer, Footer, FriendZone } from "./styles";
+import {
+  ButtonProfile,
+  Container,
+  FieldContainer,
+  Footer,
+  FriendZone,
+} from "../../styles/pages/profile";
 
 export default function Profile() {
   const [session, loading] = useSession();
@@ -67,7 +73,9 @@ export default function Profile() {
             <FieldContainer>
               <label htmlFor="email">
                 <span>E-MAIL</span>
-                <p>*****@gmail.com  <span className="blue">Mostrar</span></p>
+                <p>
+                  *****@gmail.com <span className="blue">Mostrar</span>
+                </p>
               </label>
 
               <ButtonProfile id="email">Editar</ButtonProfile>
@@ -85,7 +93,9 @@ export default function Profile() {
         </div>
 
         <Footer>
-          <span>Criado por <a className="blue">Natan T</a></span>
+          <span>
+            Criado por <a className="blue">Natan T</a>
+          </span>
         </Footer>
       </main>
     </Container>

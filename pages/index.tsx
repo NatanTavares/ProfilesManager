@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/client";
-import SignIn from "./auth/sing-in";
+import SignIn from "./auth/sign-in";
 
 import Profile from "./profile";
 

@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/client";
 
-import { Container } from "./styles";
+import { Container } from "../../styles/pages/sign-in";
 
 export default function SignIn() {
   return (
