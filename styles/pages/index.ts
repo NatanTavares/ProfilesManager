@@ -19,10 +19,11 @@ export const Container = styled.div`
     border-radius: 0.25rem;
     background: var(--blue);
 
+    font-size: 1rem;
     font-weight: 700;
     color: var(--white);
 
-    transition: 200ms;
+    transition: filter 0.2s;
 
     &:hover {
       filter: brightness(0.9);
