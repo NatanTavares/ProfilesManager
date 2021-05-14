@@ -10,8 +10,6 @@ import {
 export default function Profile() {
   const [session, loading] = useSession();
 
-  console.log(session);
-
   return (
     <Container>
       <FriendZone>
@@ -53,8 +51,11 @@ export default function Profile() {
         <div className="profile-container">
           <div className="header">
             <div>
-              <img src={session.user.image} alt={session.user.name} />
-              <h2>NatanT</h2>
+              <img
+                src={session.user.image || "#"}
+                alt={session.user.name || "#"}
+              />
+              <h2>{session.user.name || "NatanT"}</h2>
               <span>#2651</span>
             </div>
             <ButtonProfile>Enviar avatar</ButtonProfile>
@@ -64,7 +65,7 @@ export default function Profile() {
             <FieldContainer>
               <label htmlFor="username">
                 <span>NOME DE USUÁRIO</span>
-                <p>NatanT#2651</p>
+                <p>{session.user.name || "NatanT"}#2651</p>
               </label>
 
               <ButtonProfile id="username">Editar</ButtonProfile>
