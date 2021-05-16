@@ -1,4 +1,5 @@
 import { Provider } from "next-auth/client";
+import { FormModalProvider } from "../hooks/FormModalContext";
 
 import { GlobalStyle } from "../styles/globals";
 
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
 
       <Provider session={pageProps.session}>
-        <Component {...pageProps} />
+        <FormModalProvider>
+          <Component {...pageProps} />
+        </FormModalProvider>
       </Provider>
     </>
   );
