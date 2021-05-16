@@ -11,7 +11,7 @@ interface FormModalProviderProps {
 
 const FormModalContext = createContext({} as FormModalContextData);
 
-// Modal.setAppElement("#root");
+Modal.setAppElement("#__next");
 
 export function FormModalProvider({ children }: FormModalProviderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
