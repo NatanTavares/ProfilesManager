@@ -29,8 +29,8 @@ export function FormModalProvider({ children }: FormModalProviderProps) {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseFormModal}
-        className="data-update-modal"
-        overlayClassName="overlay-data-update-modal"
+        className="react-modal-content"
+        overlayClassName="react-modal-overlay"
       >
         <h2>Olá</h2>
       </Modal>
