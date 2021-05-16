@@ -1,4 +1,5 @@
 import { signOut, useSession } from "next-auth/client";
+import { useModal } from "../../hooks/FormModalContext";
 import {
   ButtonProfile,
   Container,
@@ -9,6 +10,7 @@ import {
 
 export default function Profile() {
   const [session, loading] = useSession();
+  const { handleOpenFormModal } = useModal();
 
   return (
     <Container>
@@ -25,7 +27,10 @@ export default function Profile() {
         <ul className="friends">
           <h4>Meus amigos</h4>
           <li>
-            <img src={session?.user.image || "#"} alt={session.user.name || "NatanT"} />
+            <img
+              src={session?.user.image || "#"}
+              alt={session.user.name || "NatanT"}
+            />
             <div>
               <strong>{session?.user.name || "NatanT"}</strong>
               <span>
@@ -63,32 +68,38 @@ export default function Profile() {
 
           <div className="details">
             <FieldContainer>
-              <label htmlFor="username">
+              <label>
                 <span>NOME DE USUÁRIO</span>
                 <p>{session?.user.name || "NatanT"}#2651</p>
               </label>
 
-              <ButtonProfile id="username">Editar</ButtonProfile>
+              <ButtonProfile onClick={handleOpenFormModal}>
+                Editar
+              </ButtonProfile>
             </FieldContainer>
 
             <FieldContainer>
-              <label htmlFor="email">
+              <label>
                 <span>E-MAIL</span>
                 <p>
                   *****@gmail.com <span className="blue">Mostrar</span>
                 </p>
               </label>
 
-              <ButtonProfile id="email">Editar</ButtonProfile>
+              <ButtonProfile onClick={handleOpenFormModal}>
+                Editar
+              </ButtonProfile>
             </FieldContainer>
 
             <FieldContainer>
-              <label htmlFor="phone">
+              <label>
                 <span>TELEFONE</span>
                 <p>Você ainda não adicionou um telefone</p>
               </label>
 
-              <ButtonProfile id="phone">Adicionar</ButtonProfile>
+              <ButtonProfile onClick={handleOpenFormModal}>
+                Adicionar
+              </ButtonProfile>
             </FieldContainer>
           </div>
         </div>
