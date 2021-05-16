@@ -11,6 +11,8 @@ interface FormModalProviderProps {
 
 const FormModalContext = createContext({} as FormModalContextData);
 
+// Modal.setAppElement("#root");
+
 export function FormModalProvider({ children }: FormModalProviderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,7 +26,12 @@ export function FormModalProvider({ children }: FormModalProviderProps) {
 
   return (
     <FormModalContext.Provider value={{ handleOpenFormModal }}>
-      <Modal isOpen={isModalOpen} onRequestClose={handleCloseFormModal}>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseFormModal}
+        className="data-update-modal"
+        overlayClassName="overlay-data-update-modal"
+      >
         <h2>Olá</h2>
       </Modal>
 
