@@ -30,8 +30,10 @@ export function DataUpdateModal() {
         <InputField label="SENHA ATUAL" />
 
         <FooterModal>
-          <button>Cancelar</button>
-          <button>Pronto</button>
+          <button type="button" onClick={handleCloseFormModal}>
+            Cancelar
+          </button>
+          <button type="button" onClick={e => console.log(e)}>Pronto</button>
         </FooterModal>
       </Content>
     </Modal>
