@@ -59,4 +59,26 @@ export const FooterModal = styled.div`
 
   border-radius: 0 0 0.5rem 0.5rem;
   background: var(--background-dark);
+
+  button {
+    width: 96px;
+    height: 38px;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    border-radius: 0.25rem;
+    background: none;
+
+    transition: 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    & + button {
+      margin-left: 0.5rem;
+      background: var(--blue);
+    }
+  }
 `;
