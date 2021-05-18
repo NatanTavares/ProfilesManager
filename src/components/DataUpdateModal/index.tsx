@@ -5,7 +5,7 @@ import { useModal } from "../../hooks/FormModalContext";
 import { IoCloseOutline } from "react-icons/io5";
 import { Content, FooterModal, HeaderModal } from "./styles";
 
-import DataScope from "../../ModalData.json";
+import DataScope from "./ModalData.json";
 
 interface DataUpdateModalProps {
   scope: number;
@@ -14,8 +14,6 @@ interface DataUpdateModalProps {
 Modal.setAppElement("#__next");
 export function DataUpdateModal({ scope }: DataUpdateModalProps) {
   const { isModalOpen, handleCloseFormModal } = useModal();
-
-  console.log(DataScope[scope]);
 
   return (
     <Modal
@@ -30,12 +28,17 @@ export function DataUpdateModal({ scope }: DataUpdateModalProps) {
             className="react-modal-close"
             onClick={handleCloseFormModal}
           />
-          <h2>Mudança de nome de usuário</h2>
-          <p>Insira um novo nome de usuário e sua senha atual.</p>
+          <h2>{DataScope[scope].title}</h2>
+          <p>{DataScope[scope].subtitle}</p>
         </HeaderModal>
 
-        <InputField label="NOME DE USUÁRIO" defaultValue="NatanT" />
-        <InputField label="SENHA ATUAL" />
+        {DataScope[scope].inputs.map((input, index) => (
+          <InputField
+            key={index}
+            label={input.label}
+            defaultValue={input?.defaultValue}
+          />
+        ))}
 
         <FooterModal>
           <button type="button" onClick={handleCloseFormModal}>
