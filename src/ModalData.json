@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "title": "Mudança de nome de usuário",
+    "subtitle": "Insira um novo nome de usuário e sua senha atual.",
+    "inputs": [
+      { "label": "NOME DE USUÁRIO", "defaultValue": "test" },
+      { "label": "SENHA ATUAL" }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Insira um e-mail",
+    "subtitle": "Insira um novo email e sua senha atual.",
+    "inputs": [
+      { "label": "E-MAIL", "defaultValue": "test" },
+      { "label": "SENHA ATUAL" }
+    ]
+  }
+]
