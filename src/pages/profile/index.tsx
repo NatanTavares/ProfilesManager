@@ -27,19 +27,16 @@ export default function Profile() {
         <ul className="friends">
           <h4>Meus amigos</h4>
           <li>
-            <img
-              src={session?.user.image || "#"}
-              alt={session.user.name || "NatanT"}
-            />
+            <img src={session?.user.image} alt={session.user.name} />
             <div>
-              <strong>{session?.user.name || "NatanT"}</strong>
+              <strong>{session?.user.name}</strong>
               <span>
                 Jogando Visual Studio Code Jogando Visual Jogando Visual
               </span>
             </div>
           </li>
           <li>
-            <img src={session?.user.image || "#"} alt="Gitano" />
+            <img src={session?.user.image} alt="Gitano" />
             <div>
               <strong>Gitano</strong>
             </div>
@@ -56,11 +53,8 @@ export default function Profile() {
         <div className="profile-container">
           <div className="header">
             <div>
-              <img
-                src={session?.user.image || "#"}
-                alt={session?.user.name || "#"}
-              />
-              <h2>{session?.user.name || "NatanT"}</h2>
+              <img src={session?.user.image} alt={session?.user.name} />
+              <h2>{session?.user.name}</h2>
               <span>#2651</span>
             </div>
             <ButtonProfile>Enviar avatar</ButtonProfile>
@@ -70,10 +64,10 @@ export default function Profile() {
             <FieldContainer>
               <label>
                 <span>NOME DE USUÁRIO</span>
-                <p>{session?.user.name || "NatanT"}#2651</p>
+                <p>{session.user.name}#2651</p>
               </label>
 
-              <ButtonProfile onClick={handleOpenFormModal}>
+              <ButtonProfile onClick={() => handleOpenFormModal(0)}>
                 Editar
               </ButtonProfile>
             </FieldContainer>
@@ -86,7 +80,7 @@ export default function Profile() {
                 </p>
               </label>
 
-              <ButtonProfile onClick={handleOpenFormModal}>
+              <ButtonProfile onClick={() => handleOpenFormModal(1)}>
                 Editar
               </ButtonProfile>
             </FieldContainer>
@@ -97,7 +91,7 @@ export default function Profile() {
                 <p>Você ainda não adicionou um telefone</p>
               </label>
 
-              <ButtonProfile onClick={handleOpenFormModal}>
+              <ButtonProfile onClick={() => console.log("Open modal")}>
                 Adicionar
               </ButtonProfile>
             </FieldContainer>

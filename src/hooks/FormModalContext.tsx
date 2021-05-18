@@ -3,7 +3,7 @@ import { DataUpdateModal } from "../components/DataUpdateModal";
 
 interface FormModalContextData {
   isModalOpen: boolean;
-  handleOpenFormModal: () => void;
+  handleOpenFormModal: (scope: number) => void;
   handleCloseFormModal: () => void;
 }
 
@@ -15,8 +15,10 @@ const FormModalContext = createContext({} as FormModalContextData);
 
 export function FormModalProvider({ children }: FormModalProviderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [scopeId, setScopeId] = useState(0);
 
-  function handleOpenFormModal() {
+  function handleOpenFormModal(scope: number) {
+    setScopeId(scope);
     setIsModalOpen(true);
   }
 
@@ -28,7 +30,7 @@ export function FormModalProvider({ children }: FormModalProviderProps) {
     <FormModalContext.Provider
       value={{ isModalOpen, handleOpenFormModal, handleCloseFormModal }}
     >
-      <DataUpdateModal />
+      <DataUpdateModal scope={scopeId} />
       {children}
     </FormModalContext.Provider>
   );
