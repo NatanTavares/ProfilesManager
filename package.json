@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build & next dev",
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "next": "10.2.0",
     "next-auth": "^3.22.0",
     "react": "17.0.2",
