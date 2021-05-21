@@ -1,3 +1,4 @@
+import { GetServerSideProps } from "next";
 import { signOut, useSession } from "next-auth/client";
 import { useModal } from "../hooks/FormModalContext";
 import {
@@ -27,7 +28,7 @@ export default function Profile() {
         <ul className="friends">
           <h4>Meus amigos</h4>
           <li>
-            <img src={session?.user.image} alt={session.user.name} />
+            <img src={session?.user.image} alt={session?.user.name} />
             <div>
               <strong>{session?.user.name}</strong>
               <span>
@@ -64,7 +65,7 @@ export default function Profile() {
             <FieldContainer>
               <label>
                 <span>NOME DE USUÁRIO</span>
-                <p>{session.user.name}#2651</p>
+                <p>{session?.user.name}#2651</p>
               </label>
 
               <ButtonProfile onClick={() => handleOpenFormModal(0)}>
