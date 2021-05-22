@@ -172,6 +172,7 @@ export const FriendZone = styled.aside`
 `;
 
 export const ButtonProfile = styled.button`
+  position: relative;
   max-height: 32px;
   padding: 5px 8px;
 
@@ -182,6 +183,21 @@ export const ButtonProfile = styled.button`
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  .custom-file-upload {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border: none;
+    cursor: pointer;
+
+    input[type="file"] {
+      display: none;
+    }
   }
 `;
 
