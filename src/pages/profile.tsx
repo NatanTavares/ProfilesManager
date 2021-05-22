@@ -18,11 +18,7 @@ export default function Profile() {
   const [session, loading] = useSession();
   const { handleOpenFormModal } = useModal();
 
-  return loading ? (
-    <div className="">
-      <h1>Olá</h1>
-    </div>
-  ) : (
+  return (
     <Container>
       <FriendZone>
         <div className="search-bar">
