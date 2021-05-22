@@ -1,6 +1,9 @@
+import axios from "axios";
 import { GetServerSideProps } from "next";
 import { signOut, useSession } from "next-auth/client";
+import { useEffect } from "react";
 import { useModal } from "../hooks/FormModalContext";
+import { api } from "../services/api";
 import {
   ButtonProfile,
   Container,
@@ -9,11 +12,17 @@ import {
   FriendZone,
 } from "../styles/pages/profile";
 
+const DEFAULT_AVATAR_URL = "http://i.imgur.com/EroY8Ii.png";
+
 export default function Profile() {
   const [session, loading] = useSession();
   const { handleOpenFormModal } = useModal();
 
-  return (
+  return loading ? (
+    <div className="">
+      <h1>Olá</h1>
+    </div>
+  ) : (
     <Container>
       <FriendZone>
         <div className="search-bar">
@@ -27,19 +36,21 @@ export default function Profile() {
 
         <ul className="friends">
           <h4>Meus amigos</h4>
-          <li>
+          {/* <li>
             <img src={session?.user.image} alt={session?.user.name} />
             <div>
               <strong>{session?.user.name}</strong>
-              <span>
-                Jogando Visual Studio Code Jogando Visual Jogando Visual
-              </span>
+              <span></span>
             </div>
-          </li>
+          </li> */}
           <li>
-            <img src={session?.user.image} alt="Gitano" />
+            <img
+              src={"https://cdn.discordapp.com/embed/avatars/1.png"}
+              alt="NatanT"
+            />
             <div>
-              <strong>Gitano</strong>
+              <strong>NatanT</strong>
+              <span>Jogando Visual Studio Code</span>
             </div>
           </li>
         </ul>
@@ -54,18 +65,26 @@ export default function Profile() {
         <div className="profile-container">
           <div className="header">
             <div>
-              <img src={session?.user.image} alt={session?.user.name} />
+              <img
+                src={session?.user.image || DEFAULT_AVATAR_URL}
+                alt={session?.user.name}
+              />
               <h2>{session?.user.name}</h2>
-              <span>#2651</span>
+              {/* <span>#2651</span> */}
             </div>
-            <ButtonProfile>Enviar avatar</ButtonProfile>
+            <ButtonProfile>
+              Enviar avatar
+              <label className="custom-file-upload">
+                <input type="file" />
+              </label>
+            </ButtonProfile>
           </div>
 
           <div className="details">
             <FieldContainer>
               <label>
                 <span>NOME DE USUÁRIO</span>
-                <p>{session?.user.name}#2651</p>
+                <p>{session?.user.name}</p>
               </label>
 
               <ButtonProfile onClick={() => handleOpenFormModal(0)}>
@@ -77,7 +96,8 @@ export default function Profile() {
               <label>
                 <span>E-MAIL</span>
                 <p>
-                  *****@gmail.com <span className="blue">Mostrar</span>
+                  {session.user.email}
+                  {/* <span className="blue">Mostrar</span> */}
                 </p>
               </label>
 
